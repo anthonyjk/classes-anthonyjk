@@ -102,7 +102,7 @@ public class MileageTracker
      */
     public void incrementFuelConsumed(double gallons)
     {
-        // later
+        this.fuelConsumed += gallons;
     }
     
     /**
@@ -112,7 +112,7 @@ public class MileageTracker
      */
     public double getFuelConsumed()
     {
-        return 0.0;
+        return this.fuelConsumed;
     }
     
     /**
@@ -122,7 +122,7 @@ public class MileageTracker
      */
     public double getMileage()
     {
-        return 0.0;
+        return this.milesDriven / this.fuelConsumed;
     }
     
     /**
@@ -132,7 +132,7 @@ public class MileageTracker
      */
     public String getVIN()
     {
-        return null;
+        return this.vin;
     }
     
     /**
@@ -140,9 +140,19 @@ public class MileageTracker
      * 
      * @param newVIN    the vehicle identification (VIN) of this car
      */
-    public void setVIN(String vin)
+    public void setVIN(String newVin)
     {
-        vin = vin;
+        /*
+         * If the parameter was named vin, it would "shadow" the instance variable vin.
+         * 
+         * Local and parameter variables "shadow" instance variables of the same name.
+         *   In this code, vin would refer to the parameter and not the instance variable.
+         *   
+         *   To refer explicity to an instance variable, use "this".
+         *   Advice: avoid this issue by giving local parameter, and instance variables unique names!
+         */
+        
+        vin = newVin;
     }
 }
 
