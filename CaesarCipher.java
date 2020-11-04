@@ -11,6 +11,18 @@ import java.util.Scanner;
  */
 public class CaesarCipher
 {
+    /*
+     * static: one value of the variable for all objects of the class
+     *   Like class attributes in Python.
+     *   Static class variables can be accessed directly through the class
+     *       (e.g., CaesarCipher.ALPHABET, Math.PI, Color.RED).
+     *       
+     * String literal: 
+     *   An instances of the String class (not a primitives) delinated by double quotes and
+     *      must be defined on a single line
+     * "ABCDEFGHIJKLMNOPQRSTUVWXYZ" is a string literal equivalent to:
+     *      new String("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+     */
     private static final String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     
     private String keyphrase;
@@ -222,5 +234,43 @@ public class CaesarCipher
         // average time is half the worst time since the best time is cracking the
         //  cipher on the first attempt
         return worstCaseTimeToCrack/2;
+    }
+    
+    /*
+     * The method is static and is indepedent of the state of a
+     *    CasearCipher object
+     * As a result, this method can be invoked on the class instead of a variable
+     *    references an object (e.g., CaesarCipher.generateKeyphrase(7);
+     * In addition, this method cannot access any instances variables.
+     */
+    /**
+     * Generates a pseudorandom keyphrase of the specified length in characters.
+     * 
+     * @param length the number of characters in the keyphrase
+     * @return a pseudorandom keyphrase of the specified length
+     */
+    public static String generateKeyphrase(int length)
+    {
+        String keyphrase = ""; 
+        
+        for(int i = 0; i < length; i++)
+        {
+            /*
+             * The Math.random static method returns a double [0.0 ... 1.0)
+             * 
+             * Often we use the following algrothim to generate random ints from [min .. max]:
+             * 
+             * int n = (int((Math.random() * (max - min + 1)) + min);
+             * 
+             * For example: generate a random int [0 ... 25]
+             * 
+             * ABCDEFGHIJKLMNOPQRSTUVWXYZ
+             * 0          ....          25
+             */
+            int letterIndex = (int)(Math.random() * 26);
+            keyphrase += CaesarCipher.ALPHABET.substring(letterIndex, letterIndex + 1);
+        }
+        
+        return keyphrase;
     }
 }
