@@ -3,8 +3,8 @@ import javax.swing.JFrame;
 /**
  * Class that contains the main method for the program and creates the frame containing the component.
  * 
- * @author gcschmit
- * @version 18 July 2014
+ * @author anthonyjk
+ * @version 6nov2020
  */
 public class CityscapeViewer
 {
