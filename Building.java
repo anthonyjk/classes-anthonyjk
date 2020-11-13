@@ -1,4 +1,3 @@
-
 import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
 import java.awt.geom.Ellipse2D;
@@ -127,7 +126,7 @@ public class Building
      */
     public void draw(Graphics2D g) 
     {
-        Rectangle2D.Double build = new Rectangle2D.Double(this.height, this.width, this.x, this.y);
+        Rectangle2D.Double build = new Rectangle2D.Double(this.x, this.y, this.width, this.height);
         
         g.setPaint(this.color);
         g.draw(build);

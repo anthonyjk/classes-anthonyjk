@@ -13,13 +13,15 @@ import java.awt.Color;
 public class CityscapeComponent extends JComponent
 {
     // define the objects in your Cityscape as instance variables
-    private Building build = new Building(100, 200, 70, 20, Color.RED);
+    private Building build1 = new Building(200, 300, 300, 80, Color.RED);
+    private Building build2 = new Building (300, 400, 200, 80, Color.BLUE);
     
     
     // define the CityscapeComponent contructor and intiailize all instance variables
     public CityscapeComponent()
     {
-        this.build = build;
+        this.build1 = build1;
+        this.build2 = build2;
     }
     
     
@@ -36,7 +38,8 @@ public class CityscapeComponent extends JComponent
         Graphics2D g2 = (Graphics2D) g;
         
         // invoke the draw method on each object in your Cityscape
-        this.build.draw(g2);
+        this.build1.draw(g2);
+        this.build2.draw(g2);
     }
     
     /**
